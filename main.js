@@ -3,16 +3,14 @@ var app = new Vue ({
     data: {
         films: [],
         query: '',
-        solid: 'fas',
-        be: 'en'
-
+        solid: 'fas'
 
     },
 
     methods: {
         utent_search(query){
 
-            axios.get('https://api.themoviedb.org/3/search/movie', {
+            axios.get('https://api.themoviedb.org/3/search/multi', {
                 params: {
                     api_key: '04b3ed8850d2c7627102f2c8b2457428',
                     query: query
