@@ -4,6 +4,7 @@ var app = new Vue ({
         films: [],
         query: '',
         solid: 'fas',
+        be: 'en'
 
 
     },

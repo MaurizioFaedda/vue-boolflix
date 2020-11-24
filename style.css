@@ -40,3 +40,9 @@ img{
 .fa-star {
     color: yellow;
 }
+
+#flag img{
+    width: 18px;
+    height: 14px;
+
+}

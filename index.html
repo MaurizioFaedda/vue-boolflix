@@ -24,7 +24,8 @@
                         </div>
                         <p>Titolo: {{film.original_title}}</p>
                         <p>Titolo Originale: {{film.title}}</p>
-                        <p>Lingua:{{film.original_language}}</p>
+                        <p>Lingua:{{film.original_language}} <span id="flag"> <img :src="'flag/'+film.original_language+'.png'"></span> </p>
+                        <span></span>
                         <p>Voto: {{parseInt(film.vote_average*0.5)}}
                             <i :class="[index <= parseInt(film.vote_average)*0.5 ? solid : '']" v-for="index in 5" class="far fa-star"></i>
 
