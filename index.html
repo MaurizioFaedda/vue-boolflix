@@ -14,8 +14,31 @@
     </head>
     <body>
         <div class="container "id="root">
-            <input placeholder="cerca un film" v-model="query" @keyup.enter="utent_search(query)" type="text" name="" value="">
-            <button @click="utent_search(query)" type="button" name="button">cerca</button>
+            <nav>
+                <div id="nav-left">
+                    <div class="logo">
+                        <img src="img/netflix_logo.png" alt="">
+                    </div>
+                    <ul id="nav-menu">
+                        <li>Home</li>
+                        <li>Serie TV</li>
+                        <li>Film</li>
+                        <li>Nuovi e popolari</li>
+                        <li>La mia lista</li>
+                    </u>
+                </div>
+
+                <div id="nav-right">
+                    <div class="nav-item">
+                        <input placeholder="cerca un film" v-model="query" @keyup.enter="utent_search(query)" type="text" name="" value="">
+                        <button @click="utent_search(query)" type="button" name="button"></button>
+                    </div>
+                    <div class="nav-item"></div>
+                    <div class="nav-item"></div>
+                    <div class="nav-item"></div>
+                </div>
+
+            </nav>
             <div class="section-films">
                 <div v-if="film.media_type != 'person'" v-for="film in media" class="film-card">
                     <div  class="film-content">
@@ -27,7 +50,7 @@
                         <p v-if="film.media_type === 'movie'">Titolo Originale: {{film.original_title}}</p>
                         <p v-if="film.media_type === 'tv'">Titolo Originale: {{film.original_name}}</p>
                         <p>Type: {{film.media_type}}</p>
-                        <p>Lingua:{{film.original_language}} <span id="flag"> <img :src="'flag/'+film.original_language+'.png'"></span> </p>
+                        <p>Lingua:{{film.original_language}} <span id="flag"> <img :src="'img/flag/'+film.original_language+'.png'"></span> </p>
                         <span></span>
                         <p>Voto: {{parseInt(film.vote_average*0.5)}}
                             <i :class="[index <= parseInt(film.vote_average)*0.5 ? solid : '']" v-for="index in 5" class="far fa-star"></i>
