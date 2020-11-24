@@ -20,7 +20,7 @@ var app = new Vue ({
             })
             this.query = '';
         }
-    }
+    },
 
 
 })
