@@ -27,11 +27,9 @@ var app = new Vue ({
         },
 
         isActive(){
-            if(this.visible == false){
+             //seconda condizione per non far scomparire la barra con onblur quando l'utente ha inserito almeno una lettera
+            if((this.visible == false) || (this.visible == true && this.query != '')){
                 this.visible = true;
-                this.show = false
-            }else if(this.visible == true && this.query != ''){
-                this.visible = true
                 this.show = false
             } else{
                 this.visible = false
