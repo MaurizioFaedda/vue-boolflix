@@ -17,7 +17,7 @@
             <input placeholder="cerca un film" v-model="query" @keyup.enter="utent_search(query)" type="text" name="" value="">
             <button @click="utent_search(query)" type="button" name="button">cerca</button>
             <div class="section-films">
-                <div  v-for="film in media" class="film-card">
+                <div v-if="film.media_type != 'person'" v-for="film in media" class="film-card">
                     <div  class="film-content">
                         <div class="img-box">
                             <img src="https://beepeers.com/assets/images/festival/default-image.jpg" alt="">
