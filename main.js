@@ -2,7 +2,9 @@ var app = new Vue ({
     el: '#root',
     data: {
         films: [],
-        query: ''
+        query: '',
+        solid: 'fas',
+
 
     },
 
@@ -19,8 +21,21 @@ var app = new Vue ({
                 this.films = res.data.results;
             })
             this.query = '';
+
+
         }
     },
+
+    // computed:{
+    //
+    //     star(item){
+    //         let voto5 = parseInt(item)*0.5;
+    //         return voto5
+    //     }
+    // }
+
+
+
 
 
 })

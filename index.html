@@ -25,12 +25,9 @@
                         <p>Titolo: {{film.original_title}}</p>
                         <p>Titolo Originale: {{film.title}}</p>
                         <p>Lingua:{{film.original_language}}</p>
-                        <p>Voto: {{film.vote_average*0.5}}
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
+                        <p>Voto: {{parseInt(film.vote_average*0.5)}}
+                            <i :class="[index <= parseInt(film.vote_average)*0.5 ? solid : '']" v-for="index in 5" class="far fa-star"></i>
+
                         </p>
                     </div>
 
