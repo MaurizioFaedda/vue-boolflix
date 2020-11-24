@@ -1,7 +1,7 @@
 var app = new Vue ({
     el: '#root',
     data: {
-        films: [],
+        media: [],
         query: '',
         solid: 'fas'
 
@@ -17,7 +17,7 @@ var app = new Vue ({
                 }
             })
             .then((res) => {
-                this.films = res.data.results;
+                this.media = res.data.results;
             })
             this.query = '';
 
