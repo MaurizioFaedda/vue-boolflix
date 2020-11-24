@@ -30,8 +30,12 @@
 
                 <div id="nav-right">
                     <div class="nav-item">
-                        <input placeholder="cerca un film" v-model="query" @keyup.enter="utent_search(query)" type="text" name="" value="">
-                        <button @click="utent_search(query)" type="button" name="button"></button>
+                        <button v-if="show" @click="isActive()" type="button" name="button"></button>
+                        <div v-if= "visible" class="search-box">
+                            <button @click="isActive()" type="button" name="button"></button>
+                            <input v-on:blur="isActive()" @keyup="utent_search(query), isDel()" placeholder="cerca un film" v-model="query" @keyup.enter="utent_search(query)" type="text" name="" value="">
+                            <span v-if="check" @click="empty(), isDel()" class="icon-del"></span>
+                        </div>
                     </div>
                     <div class="nav-item">
                         <span class="icon-gift"></span>
@@ -61,7 +65,7 @@
                         <p>Lingua:{{film.original_language}} <span id="flag"> <img :src="'img/flag/'+film.original_language+'.png'"></span> </p>
                         <span></span>
                         <p>Voto: {{parseInt(film.vote_average*0.5)}}
-                            <i :class="[index <= parseInt(film.vote_average)*0.5 ? solid : '']" v-for="index in 5" class="far fa-star"></i>
+                            <i :class="[index <= parseInt(film.vote_average*0.5) ? solid : '']" v-for="index in 5" class="far fa-star"></i>
 
                         </p>
                     </div>

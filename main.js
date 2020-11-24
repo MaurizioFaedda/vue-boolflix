@@ -3,7 +3,10 @@ var app = new Vue ({
     data: {
         media: [],
         query: '',
-        solid: 'fas'
+        solid: 'fas',
+        visible: false,
+        show: true,
+        check: false
 
     },
 
@@ -19,9 +22,33 @@ var app = new Vue ({
             .then((res) => {
                 this.media = res.data.results;
             })
-            this.query = '';
+            // this.query = '';
 
+        },
 
+        isActive(){
+            if(this.visible == false){
+                this.visible = true;
+                this.show = false
+            }else if(this.visible == true && this.query != ''){
+                this.visible = true
+                this.show = false
+            } else{
+                this.visible = false
+                this.show = true
+            }
+        },
+
+        isDel(){
+            if (this.check == false) {
+                this.check = true
+            } else if(this.query == '') {
+                this.check = false
+            }
+        },
+
+        empty(){
+            this.query = "";
         }
     },
 
