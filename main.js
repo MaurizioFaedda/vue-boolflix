@@ -51,9 +51,9 @@ var app = new Vue ({
 
         },
 
-        focusInput(){
-            this.$refs.search.$el.focus();
-        },
+        // focusInput(){
+        //     this.$refs.search.$el.focus();
+        // },
 
 
 

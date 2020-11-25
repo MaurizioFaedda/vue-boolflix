@@ -51,31 +51,37 @@
                 </div>
 
             </nav>
-            <h2 v-if="ricerca">
-                Ricerca in corso
-            </h2>
-            <h3 v-else-if="query && media.length">
-                Risultati ricerca per : "{{query}}"
-            </h3>
+            <div class="text-info">
+                <h2 v-if="ricerca">
+                    Ricerca in corso
+                </h2>
+                <h3 v-else-if="query && media.length">
+                    Risultati ricerca per : "{{query}}"
+                </h3>
+
+            </div>
 
 
             <div class="section-films">
                 <div v-if="film.media_type != 'person'" v-for="film in media" class="film-card">
                     <div  class="film-content">
                         <div class="img-box">
-                            <img src="https://beepeers.com/assets/images/festival/default-image.jpg" alt="">
+                            <img :src="'https://image.tmdb.org/t/p/w185' + film.poster_path" alt="">
                         </div>
-                        <p v-if="film.media_type === 'movie'">Titolo: {{film.title}}</p>
-                        <p v-if="film.media_type === 'tv'">Titolo: {{film.name}}</p>
-                        <p v-if="film.media_type === 'movie'">Titolo Originale: {{film.original_title}}</p>
-                        <p v-if="film.media_type === 'tv'">Titolo Originale: {{film.original_name}}</p>
-                        <p>Type: {{film.media_type}}</p>
-                        <p>Lingua: <span id="flag"> <img :src="'img/flag/'+film.original_language+'.png'" :alt="film.original_language"></span> </p>
-                        <span></span>
-                        <p>Voto: {{parseInt(film.vote_average*0.5)}}
-                            <i :class="[index <= parseInt(film.vote_average*0.5) ? solid : '']" v-for="index in 5" class="far fa-star"></i>
+                        <ul class="info-box">
+                            <li v-if="film.media_type === 'movie'">Titolo: {{film.title}}</li>
+                            <li v-if="film.media_type === 'tv'">Titolo: {{film.name}}</li>
+                            <li v-if="film.media_type === 'movie'">Titolo Originale: {{film.original_title}}</li>
+                            <li v-if="film.media_type === 'tv'">Titolo Originale: {{film.original_name}}</li>
+                            <li>Type: {{film.media_type}}</li>
+                            <li>Lingua: <span id="flag"> <img :src="'img/flag/'+film.original_language+'.png'" :alt="film.original_language"></span> </li>
+                            <span></span>
+                            <li>Voto: {{parseInt(film.vote_average*0.5)}}
+                                <i :class="[index <= parseInt(film.vote_average*0.5) ? solid : '']" v-for="index in 5" class="far fa-star"></i>
 
-                        </p>
+                            </li>
+
+                        </ul>
                     </div>
 
                 </div>

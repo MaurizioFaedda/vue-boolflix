@@ -136,7 +136,9 @@ nav{
     border-radius: 6%;
 }
 
-
+.text-info{
+    padding-left: 18px;
+}
 
 
 
@@ -148,23 +150,37 @@ nav{
     display:flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+    margin-top: 20px
 
 }
 
 .film-card{
-    max-width: 280px;
-    height: 400px;
-    padding: 5px;
+    max-width: calc(100% / 5);
+    height: 500px;
+    padding: 6px;
+    display: flex;
+    justify-content: center;
+    /* margin: 0 auto; */
 }
 
 .film-content{
     width: 100%;
 }
 
+.info-box{
+    list-style-type: none;
+}
 
-img{
-    width: 100%;
+
+.img-box img{
+    width: 280px;
+    height: 350px;
     margin: 0 auto;
+    padding: 12px;
+}
+
+.info-box{
+    margin: 0 12px;
 }
 
 .fa-star {
@@ -174,5 +190,4 @@ img{
 #flag img{
     width: 18px;
     height: 14px;
-
 }
