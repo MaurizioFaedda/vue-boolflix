@@ -26,6 +26,7 @@ nav{
     display: flex;
     justify-content: space-between;
     align-content: center;
+    margin: 0 auto;
 
 }
 
@@ -35,6 +36,7 @@ nav{
     display: flex;
     justify-content: flex-start;
     align-items: center;
+
 }
 
 /* .....logo...... */
@@ -67,8 +69,9 @@ nav{
     cursor: pointer;
     /* padding per area click maggiore, margin per capire quanto cambia icona */
     margin-left: 10px;
-    padding: 10px;
+    padding-left: 16px;
 }
+
 
 
 .search-box{
@@ -137,7 +140,6 @@ nav{
 }
 
 .text-info{
-    padding-left: 18px;
 }
 
 
@@ -149,15 +151,13 @@ nav{
     height: 100%;
     display:flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
-    margin-top: 20px
-
+    justify-content: space-between;
+    margin-top: 20px;
 }
 
 .film-card{
-    max-width: calc(100% / 5);
+    max-width: 264px;
     height: 500px;
-    padding: 6px;
     display: flex;
     justify-content: center;
     /* margin: 0 auto; */
@@ -173,14 +173,14 @@ nav{
 
 
 .img-box img{
-    width: 280px;
+    width: 264px;
     height: 350px;
-    margin: 0 auto;
-    padding: 12px;
+    border-radius: 2%;
+
 }
 
 .info-box{
-    margin: 0 12px;
+
 }
 
 .fa-star {
