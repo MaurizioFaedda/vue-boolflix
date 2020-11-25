@@ -8,12 +8,13 @@ var app = new Vue ({
         show: true,
         check: false,
         ricerca: false,
+        image: null,
         // my_input: 'focus'
 
     },
 
     mounted(){
-        this.focusInput();
+        // this.focusInput();
     },
 
     methods: {
@@ -44,9 +45,9 @@ var app = new Vue ({
                 this.show = true
             };
 
-            this.nextTick(() =>{
-              this.focusInput();
-            })
+            // this.nextTick(() =>{
+            //   this.focusInput();
+            // })
 
 
         },
@@ -68,17 +69,15 @@ var app = new Vue ({
             }
         },
 
-        // empty_media(){
-        //     if (this.query.length === 0){
-        //         this.query = '';
-        //     }
-        // },
-
 
 
         empty(){
             this.query = "";
         },
+
+        // image_default(e){
+        //     e.target.src = 'https://pdsohio.com/wp-content/uploads/2017/04/default-image.jpg'
+        // }
 
 
     }

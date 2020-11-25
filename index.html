@@ -66,7 +66,8 @@
                 <div v-if="film.media_type != 'person'" v-for="film in media" class="film-card">
                     <div  class="film-content">
                         <div class="img-box">
-                            <img :src="'https://image.tmdb.org/t/p/w185' + film.poster_path" alt="">
+                            <img v-if="film.poster_path !== null" :src="'https://image.tmdb.org/t/p/w185' + film.poster_path" @onerror="">
+                            <img v-else="image: true" src="https://www.nato-pa.int/sites/default/files/default_images/default-image.jpg">
                         </div>
                         <ul class="info-box">
                             <li v-if="film.media_type === 'movie'">Titolo: {{film.title}}</li>
@@ -74,8 +75,11 @@
                             <li v-if="film.media_type === 'movie'">Titolo Originale: {{film.original_title}}</li>
                             <li v-if="film.media_type === 'tv'">Titolo Originale: {{film.original_name}}</li>
                             <li>Type: {{film.media_type}}</li>
-                            <li>Lingua: <span id="flag"> <img :src="'img/flag/'+film.original_language+'.png'" :alt="film.original_language"></span> </li>
-                            <span></span>
+                            <li>Lingua: <span id="flag">
+                                <img :src="'img/flag/'+film.original_language+'.png'" :alt="film.original_language">
+                                <img src="" alt="">
+                            </span> </li>
+                                <span></span>
                             <li>Voto: {{parseInt(film.vote_average*0.5)}}
                                 <i :class="[index <= parseInt(film.vote_average*0.5) ? solid : '']" v-for="index in 5" class="far fa-star"></i>
 
