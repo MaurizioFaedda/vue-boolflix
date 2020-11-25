@@ -6,13 +6,20 @@ var app = new Vue ({
         solid: 'fas',
         visible: false,
         show: true,
-        check: false
+        check: false,
+        ricerca: false,
+        // my_input: 'focus'
 
+    },
+
+    mounted(){
+        this.focusInput();
     },
 
     methods: {
         utent_search(query){
 
+            this.ricerca = true
             axios.get('https://api.themoviedb.org/3/search/multi', {
                 params: {
                     api_key: '04b3ed8850d2c7627102f2c8b2457428',
@@ -21,6 +28,7 @@ var app = new Vue ({
             })
             .then((res) => {
                 this.media = res.data.results;
+                this.ricerca= false
             })
             // this.query = '';
 
@@ -34,9 +42,24 @@ var app = new Vue ({
             } else{
                 this.visible = false
                 this.show = true
-            }
+            };
+
+            this.nextTick(() =>{
+              this.focusInput();
+            })
+
+
         },
 
+        focusInput(){
+            this.$refs.search.$el.focus();
+        },
+
+
+
+
+        // compare la X se l'utente digita almeno una lettera
+        // scompare la X se query è vuoto
         isDel(){
             if (this.check == false) {
                 this.check = true
@@ -45,18 +68,22 @@ var app = new Vue ({
             }
         },
 
+        // empty_media(){
+        //     if (this.query.length === 0){
+        //         this.query = '';
+        //     }
+        // },
+
+
+
         empty(){
             this.query = "";
-        }
-    },
+        },
 
-    // computed:{
-    //
-    //     star(item){
-    //         let voto5 = parseInt(item)*0.5;
-    //         return voto5
-    //     }
-    // }
+
+    }
+
+
 
 
 

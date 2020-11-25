@@ -32,8 +32,8 @@
                     <div class="nav-item">
                         <button v-if="show" @click="isActive()" type="button" name="button"></button>
                         <div v-if= "visible" class="search-box">
-                            <button @click="isActive(), my-input.focus()" type="button" name="button"></button>
-                            <input v-on:blur="isActive()" @keyup="utent_search(query), isDel()" placeholder="cerca un film" v-model="query" @keyup.enter="utent_search(query)" type="text" class="my_input">
+                            <button @click="isActive()" type="button" name="button"></button>
+                            <input v-on:blur="isActive()" @keyup.enter="utent_search(query)" @keyup="isDel()" placeholder="cerca un film o una serie TV" v-model="query" @keyup.enter="utent_search(query)" type="text" ref="search">
                             <span v-if="check" @click="empty(), isDel()" class="icon-del"></span>
                         </div>
                     </div>
@@ -51,6 +51,14 @@
                 </div>
 
             </nav>
+            <h2 v-if="ricerca">
+                Ricerca in corso
+            </h2>
+            <h3 v-else-if="query && media.length">
+                Risultati ricerca per : "{{query}}"
+            </h3>
+
+
             <div class="section-films">
                 <div v-if="film.media_type != 'person'" v-for="film in media" class="film-card">
                     <div  class="film-content">
@@ -62,7 +70,7 @@
                         <p v-if="film.media_type === 'movie'">Titolo Originale: {{film.original_title}}</p>
                         <p v-if="film.media_type === 'tv'">Titolo Originale: {{film.original_name}}</p>
                         <p>Type: {{film.media_type}}</p>
-                        <p>Lingua:{{film.original_language}} <span id="flag"> <img :src="'img/flag/'+film.original_language+'.png'"></span> </p>
+                        <p>Lingua: <span id="flag"> <img :src="'img/flag/'+film.original_language+'.png'" :alt="film.original_language"></span> </p>
                         <span></span>
                         <p>Voto: {{parseInt(film.vote_average*0.5)}}
                             <i :class="[index <= parseInt(film.vote_average*0.5) ? solid : '']" v-for="index in 5" class="far fa-star"></i>
