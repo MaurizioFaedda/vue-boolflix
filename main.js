@@ -9,6 +9,7 @@ var app = new Vue ({
         check: false,
         ricerca: false,
         image: null,
+        flip: false
         // my_input: 'focus'
 
     },
@@ -34,6 +35,12 @@ var app = new Vue ({
             // this.query = '';
 
         },
+
+        vote(voto) {
+            return parseInt(voto * 0.5);
+
+        },
+
 
         isActive(){
              //seconda condizione per non far scomparire la barra con onblur quando l'utente ha inserito almeno una lettera
@@ -66,6 +73,14 @@ var app = new Vue ({
                 this.check = true
             } else if(this.query == '') {
                 this.check = false
+            }
+        },
+
+        isFlip(){
+            if (this.flip == false){
+                this.flip = true
+            } else {
+                this.flip = false
             }
         },
 

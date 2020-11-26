@@ -57,20 +57,21 @@
                     Ricerca in corso
                 </h3>
                 <h5 v-else-if="query && media.length">
-                    Risultati ricerca per : "{{query}}"
+                    Risultati ricerca  per : "{{query}}"
                 </h5>
 
             </div>
 
 
             <div class="section-films">
-                <div v-if="film.media_type != 'person'" v-for="film in media" class="film-card">
+                <div @click="isFlip" v-if="film.media_type != 'person'" v-for="film in media" class="film-card" :class="{ flipped: flip}">
                     <div  class="film-content">
                         <div class="img-box">
                             <img v-if="film.poster_path !== null" :src="'https://image.tmdb.org/t/p/w342' + film.poster_path" @onerror="">
-                            <img class="img-dft" v-else="image: true" src="https://www.nato-pa.int/sites/default/files/default_images/default-image.jpg">
+                            <img class="img-dft" v-else="image: true" src="https://www.dia.org/sites/default/files/No_Img_Avail.jpg">
                         </div>
-                        <!-- <ul class="info-box">
+
+                        <ul class="info-box">
                             <li v-if="film.media_type === 'movie'">Titolo: {{film.title}}</li>
                             <li v-if="film.media_type === 'tv'">Titolo: {{film.name}}</li>
                             <li v-if="film.media_type === 'movie'">Titolo Originale: {{film.original_title}}</li>
@@ -81,12 +82,12 @@
 
                             </span> </li>
                                 <span></span>
-                            <li>Voto: {{parseInt(film.vote_average*0.5)}}
-                                <i :class="[index <= parseInt(film.vote_average*0.5) ? solid : '']" v-for="index in 5" class="far fa-star"></i>
+                            <li>Voto: {{vote(film.vote_average)}}
+                                <i :class="[index <= vote(film.vote_average) ? solid : '']" v-for="index in 5" class="far fa-star"></i>
 
                             </li>
 
-                        </ul> -->
+                        </ul>
                     </div>
 
                 </div>
