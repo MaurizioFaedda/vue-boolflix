@@ -174,8 +174,8 @@ nav{
 @keyframes in_zoom {
     0% { transform: scale(1); }
     40% { transform: scale(1); }
-    70% { transform: scale(1.35); }
     100% { transform: scale(1.35) rotateY(180deg); }
+    { transform: scale(1); }
 
 
 }
@@ -187,7 +187,7 @@ nav{
 } */
 
 .film-card:hover{
-    animation: in_zoom 1.8s cubic-bezier(0,.62,0,1.01);
+    animation: in_zoom 1.8s cubic-bezier(0,.88,.43,1.02);
     animation-fill-mode: forwards;
     z-index: 1;
 
@@ -197,8 +197,6 @@ nav{
     /* width: 100%; */
     width: 300px;
     height: 450px;
-    box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 0.2);
-
 }
 
 
@@ -222,9 +220,12 @@ nav{
     list-style-type: none;
     width: 99%;
     height: 99%;
-    background: lightgrey;
+    margin: auto;
+    background: #000;
     border-radius: 2%;
     transform: rotateY(180deg);
+    border: 0.1px solid #fff;
+    padding: 20px;
 
 }
 

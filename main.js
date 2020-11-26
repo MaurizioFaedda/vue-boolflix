@@ -76,14 +76,6 @@ var app = new Vue ({
             }
         },
 
-        isFlip(){
-            if (this.flip == false){
-                this.flip = true
-            } else {
-                this.flip = false
-            }
-        },
-
 
 
         empty(){

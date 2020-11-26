@@ -64,7 +64,7 @@
 
 
             <div class="section-films">
-                <div @click="isFlip" v-if="film.media_type != 'person'" v-for="film in media" class="film-card" :class="{ flipped: flip}">
+                <div v-if="film.media_type != 'person'" v-for="film in media" class="film-card">
                     <div  class="film-content">
                         <div class="img-box">
                             <img v-if="film.poster_path !== null" :src="'https://image.tmdb.org/t/p/w342' + film.poster_path" @onerror="">
@@ -72,6 +72,8 @@
                         </div>
 
                         <ul class="info-box">
+                            <img v-if="film.poster_path !== null" :src="'https://image.tmdb.org/t/p/w92' + film.poster_path" @onerror="">
+                            <img class="img-dft" v-else="image: true" src="https://www.dia.org/sites/default/files/No_Img_Avail.jpg">
                             <li v-if="film.media_type === 'movie'">Titolo: {{film.title}}</li>
                             <li v-if="film.media_type === 'tv'">Titolo: {{film.name}}</li>
                             <li v-if="film.media_type === 'movie'">Titolo Originale: {{film.original_title}}</li>
