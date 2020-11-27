@@ -245,6 +245,7 @@ nav{
     width: 68px;
     height: 100px;
     margin-top: 2px;
+    border-radius: 2%;
 }
 .mini-poster{
     float: left;

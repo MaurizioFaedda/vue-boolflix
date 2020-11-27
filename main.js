@@ -2,6 +2,7 @@ var app = new Vue ({
     el: '#root',
     data: {
         media: [],
+        cast: [],
         query: '',
         solid: 'fas',
         visible: false,
@@ -30,11 +31,34 @@ var app = new Vue ({
             })
             .then((res) => {
                 this.media = res.data.results;
-                this.ricerca= false
+                this.ricerca= false;
+
             })
             // this.query = '';
 
         },
+
+        cast_search(id){
+
+            axios.get('https://api.themoviedb.org/3/movie/' + id + '/credits', {
+                params: {
+                    api_key: '04b3ed8850d2c7627102f2c8b2457428',
+                }
+            })
+            .then((res) => {
+                // return res.data.cast.slice(0, 5);
+                this.cast = res.data.cast.slice(0, 5);
+                this.cast.forEach((item) => {
+                    
+                    console.log(item.name);
+                });
+
+
+
+            })
+
+        },
+
 
         vote(voto) {
             return parseInt(voto * 0.5);
