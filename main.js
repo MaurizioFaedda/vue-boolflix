@@ -38,9 +38,9 @@ var app = new Vue ({
 
         },
 
-        cast_search(id){
+        cast_search(id, media_type){
 
-            axios.get('https://api.themoviedb.org/3/movie/' + id + '/credits', {
+            axios.get('https://api.themoviedb.org/3/' + media_type + '/' + id + '/credits', {
                 params: {
                     api_key: '04b3ed8850d2c7627102f2c8b2457428',
                 }
@@ -49,7 +49,7 @@ var app = new Vue ({
                 // return res.data.cast.slice(0, 5);
                 this.cast = res.data.cast.slice(0, 5);
                 this.cast.forEach((item) => {
-                    
+
                     console.log(item.name);
                 });
 

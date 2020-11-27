@@ -98,7 +98,7 @@
                                     <p><span class="info-small">Voto:</span><br> {{vote(film.vote_average)}}/5
                                         <i :class="[index <= vote(film.vote_average) ? solid : '']" v-for="index in 5" class="far fa-star"></i>
                                     </p>
-                                    <h4 @click="cast_search(film.id)">scopri il cast</h4>
+                                    <h4 @click="cast_search(film.id, film.media_type)">scopri il cast</h4>
                                     <p></p>
                                 </div>
                             </div>
