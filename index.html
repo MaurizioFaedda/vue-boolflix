@@ -82,12 +82,12 @@
                                     <h4 v-if="film.media_type === 'tv'">Titolo: <br> {{film.name}}</h4>
                                     <h5 v-if="film.media_type === 'movie'">Titolo Originale: <br> {{film.original_title}}</h5>
                                     <h5 v-if="film.media_type === 'tv'">Titolo Originale: <br> {{film.original_name}}</h5>
-                                    <h5>Lingua:
+                                    <h5>Lingua: <br>
                                         <span id="flag">
                                             <img :src="'img/flag/'+film.original_language+'.png'" :alt="film.original_language">
                                         </span>
                                     </h5>
-                                    <h5>Voto: {{vote(film.vote_average)}}/5
+                                    <h5>Voto: <br> {{vote(film.vote_average)}}/5
                                         <i :class="[index <= vote(film.vote_average) ? solid : '']" v-for="index in 5" class="far fa-star"></i>
                                     </h5>
                                 </div>

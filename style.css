@@ -237,8 +237,9 @@ nav{
     align-items: center;
     flex-flow: wrap;
 }
-.mini-poster{
-    width: 40%;
+.mini-poster img{
+    width: 92px;
+    height: 129px;
 }
 
 .main-info{
@@ -266,4 +267,5 @@ nav{
 #flag img{
     width: 20px;
     height: 18px;
+    margin-top: 4px;
 }
