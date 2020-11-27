@@ -71,25 +71,31 @@
                             <img class="img-dft" v-else="image: true" src="https://www.dia.org/sites/default/files/No_Img_Avail.jpg">
                         </div>
 
-                        <ul class="info-box">
-                            <img v-if="film.poster_path !== null" :src="'https://image.tmdb.org/t/p/w92' + film.poster_path" @onerror="">
-                            <img class="img-dft" v-else="image: true" src="https://www.dia.org/sites/default/files/No_Img_Avail.jpg">
-                            <li v-if="film.media_type === 'movie'">Titolo: {{film.title}}</li>
-                            <li v-if="film.media_type === 'tv'">Titolo: {{film.name}}</li>
-                            <li v-if="film.media_type === 'movie'">Titolo Originale: {{film.original_title}}</li>
-                            <li v-if="film.media_type === 'tv'">Titolo Originale: {{film.original_name}}</li>
-                            <li>Type: {{film.media_type}}</li>
-                            <li>Lingua: <span id="flag">
-                                <img :src="'img/flag/'+film.original_language+'.png'" :alt="film.original_language">
+                        <div class="info-box">
+                            <div class="back-info-top">
+                                <div class="mini-poster">
+                                    <img v-if="film.poster_path !== null" :src="'https://image.tmdb.org/t/p/w92' + film.poster_path" @onerror="">
+                                    <img class="img-dft" v-else="image: true" src="https://www.dia.org/sites/default/files/No_Img_Avail.jpg">
+                                </div>
+                                <div class="main-info">
+                                    <h4 v-if="film.media_type === 'movie'">Titolo: <br> {{film.title}}</h4>
+                                    <h4 v-if="film.media_type === 'tv'">Titolo: <br> {{film.name}}</h4>
+                                    <h5 v-if="film.media_type === 'movie'">Titolo Originale: <br> {{film.original_title}}</h5>
+                                    <h5 v-if="film.media_type === 'tv'">Titolo Originale: <br> {{film.original_name}}</h5>
+                                    <h5>Lingua:
+                                        <span id="flag">
+                                            <img :src="'img/flag/'+film.original_language+'.png'" :alt="film.original_language">
+                                        </span>
+                                    </h5>
+                                    <h5>Voto: {{vote(film.vote_average)}}/5
+                                        <i :class="[index <= vote(film.vote_average) ? solid : '']" v-for="index in 5" class="far fa-star"></i>
+                                    </h5>
+                                </div>
+                            </div>
 
-                            </span> </li>
-                                <span></span>
-                            <li>Voto: {{vote(film.vote_average)}}
-                                <i :class="[index <= vote(film.vote_average) ? solid : '']" v-for="index in 5" class="far fa-star"></i>
+                            <!-- <li>Type: {{film.media_type}}</li> -->
 
-                            </li>
-
-                        </ul>
+                        </div>
                     </div>
 
                 </div>
